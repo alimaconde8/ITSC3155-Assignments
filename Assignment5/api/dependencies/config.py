@@ -5,4 +5,5 @@ class Conf:
     user = "root"
     password = "Conakry_19"
 
+
 conf = Conf()
