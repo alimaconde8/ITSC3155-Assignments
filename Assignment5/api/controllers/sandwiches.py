@@ -33,7 +33,7 @@ def update_sandwich(db: Session, sandwich_id, sandwich):
     # Query the database for the specific sandwich to update
     db_sandwich = db.query(models.Sandwich).filter(models.Sandwich.id == sandwich_id)
     # Extract the update data from the provided 'sandwich' object
-    update_data = sandwich.model_dump(exclude_unset=True)
+    update_data = sandwich.dict(exclude_unset=True)
     # Update the database record with the new data, without synchronizing the session
     db_sandwich.update(update_data, synchronize_session=False)
     # Commit the changes to the database

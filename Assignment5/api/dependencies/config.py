@@ -5,5 +5,5 @@ class Conf:
     user = "root"
     password = "Conakry_19"
 
-
+# Create an instance of the configuration class
 conf = Conf()

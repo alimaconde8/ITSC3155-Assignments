@@ -31,7 +31,7 @@ def update(db: Session, order_id, order):
     # Query the database for the specific order to update
     db_order = db.query(models.Order).filter(models.Order.id == order_id)
     # Extract the update data from the provided 'order' object
-    update_data = order.model_dump(exclude_unset=True)
+    update_data = order.dict(exclude_unset=True)
     # Update the database record with the new data, without synchronizing the session
     db_order.update(update_data, synchronize_session=False)
     # Commit the changes to the database
@@ -49,3 +49,15 @@ def delete(db: Session, order_id):
     db.commit()
     # Return a response with a status code indicating success (204 No Content)
     return Response(status_code=status.HTTP_204_NO_CONTENT)
+
+
+def create_order():
+    return None
+
+
+def read_all_orders():
+    return None
+
+
+def read_one_order():
+    return None
