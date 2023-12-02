@@ -2,7 +2,6 @@ from sqlalchemy.orm import Session
 from fastapi import status, Response
 from ..models import models
 
-
 def create(db: Session, order):
     # Create a new instance of the Order model with the provided data
     db_order = models.Order(
@@ -18,14 +17,11 @@ def create(db: Session, order):
     # Return the newly created Order object
     return db_order
 
-
 def read_all(db: Session):
     return db.query(models.Order).all()
 
-
 def read_one(db: Session, order_id):
     return db.query(models.Order).filter(models.Order.id == order_id).first()
-
 
 def update(db: Session, order_id, order):
     # Query the database for the specific order to update
@@ -39,7 +35,6 @@ def update(db: Session, order_id, order):
     # Return the updated order record
     return db_order.first()
 
-
 def delete(db: Session, order_id):
     # Query the database for the specific order to delete
     db_order = db.query(models.Order).filter(models.Order.id == order_id)
@@ -49,15 +44,3 @@ def delete(db: Session, order_id):
     db.commit()
     # Return a response with a status code indicating success (204 No Content)
     return Response(status_code=status.HTTP_204_NO_CONTENT)
-
-
-def create_order():
-    return None
-
-
-def read_all_orders():
-    return None
-
-
-def read_one_order():
-    return None

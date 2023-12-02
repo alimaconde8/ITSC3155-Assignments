@@ -9,7 +9,8 @@ class Sandwich(Base):
     id = Column(Integer, primary_key=True, index=True)
     sandwich_name = Column(String, index=True)
     # Add more fields as needed for the sandwiches table
-
+    recipes = relationship("Recipe", back_populates="sandwich")
+    order_details = relationship("OrderDetail", back_populates="sandwich")
 class Resource(Base):
     __tablename__ = "resources"
 

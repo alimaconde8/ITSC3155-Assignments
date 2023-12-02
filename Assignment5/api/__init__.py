@@ -1,8 +1,6 @@
 # tests/api/__init__.py
 
-# Define a package-level variable
-package_variable = "This is a package-level variable"
+# Import package-level variables and functions
+from .api_module import package_variable, package_function
 
-# Define a package-level function
-def package_function():
-    return "This is a package-level function"
+# Now you can use package_variable and package_function in this module
